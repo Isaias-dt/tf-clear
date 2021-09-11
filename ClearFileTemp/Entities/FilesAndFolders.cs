@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Security.Permissions;
 
 namespace ClearFileTemp.Entities
 {
@@ -12,7 +13,7 @@ namespace ClearFileTemp.Entities
         public FilesAndFolders(string pathFolder)
         {
             PathFolder = pathFolder;
-            _paths = Directory.EnumerateFileSystemEntries(pathFolder);
+            _paths = Directory.EnumerateFileSystemEntries(pathFolder, "*", SearchOption.TopDirectoryOnly);
         }
 
         public void DeleteAllPath()

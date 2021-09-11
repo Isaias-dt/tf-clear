@@ -17,23 +17,48 @@ namespace ClearFileTemp
                 string sysTempPath = sysPath + @"\Temp";
 
                 FilesAndFolders fifoLocalTemp = new FilesAndFolders(localTempPath);
-                FilesAndFolders fifoSysPrefetch = new FilesAndFolders(sysPrefetchPath);
-                FilesAndFolders fifoSysTemp = new FilesAndFolders(sysTempPath);
+                //FilesAndFolders fifoSysPrefetch = new FilesAndFolders(sysPrefetchPath);
+                //FilesAndFolders fifoSysTemp = new FilesAndFolders(sysTempPath);
 
-                Console.Write("]".PadRight(10, '*'));
-                Console.Write("> " + localTempPath.ToUpper() + " <");
-                Console.WriteLine("".PadLeft(10, '*') + "[");
-                fifoLocalTemp.DeleteAllPath();
+                Console.Write("Info: Esta aplicação foi feita para limpeza de arquivos temporários.\n" +
+                    "As seguintes pastas serão limpas:\n" +
+                    $"[{localTempPath}]\n" +
+                    $"[{sysPrefetchPath}]\n" +
+                    $"[{sysTempPath}]\n" +
+                    "\nDeseja continuar com processo? (y/n): ");
 
-                Console.Write("]".PadRight(10, '*'));
-                Console.Write("> " + localTempPath.ToUpper() + " <");
-                Console.WriteLine("".PadLeft(10, '*') + "[");
-                fifoSysPrefetch.DeleteAllPath();
+                while (true)
+                {
+                    char op = char.Parse(Console.ReadLine());
+                    if (op == 'y' || op == 'Y')
+                    {
+                        Console.Write("]".PadRight(10, '*'));
+                        Console.Write("> " + localTempPath.ToUpper() + " <");
+                        Console.WriteLine("".PadLeft(10, '*') + "[");
+                        fifoLocalTemp.DeleteAllPath();
 
-                Console.Write("]".PadRight(10, '*'));
-                Console.Write("> " + localTempPath.ToUpper() + " <");
-                Console.WriteLine("".PadLeft(10, '*') + "[");
-                fifoSysTemp.DeleteAllPath();
+                        //Console.Write("]".PadRight(10, '*'));
+                        //Console.Write("> " + localTempPath.ToUpper() + " <");
+                        //Console.WriteLine("".PadLeft(10, '*') + "[");
+                        //fifoSysPrefetch.DeleteAllPath();
+
+                        //Console.Write("]".PadRight(10, '*'));
+                        //Console.Write("> " + localTempPath.ToUpper() + " <");
+                        //Console.WriteLine("".PadLeft(10, '*') + "[");
+                        //fifoSysTemp.DeleteAllPath();
+
+                        break;
+                    }
+                    else if (op == 'n' || op == 'N')
+                    {
+                        Console.ReadLine();
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
 
             }
             catch (IOException e)
