@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Security.Permissions;
 
 namespace ClearFileTemp.Entities
 {
@@ -30,11 +29,12 @@ namespace ClearFileTemp.Entities
                             Directory.Delete(p, true);
                             Console.WriteLine("Deletado: " + p);
                         }
-                        catch (IOException e)
+                        catch (Exception e)
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Error ao deletar este Pasta!");
-                            Console.WriteLine($"Error: {e.Message}");
+                            Console.WriteLine("Caminho: " + p);
+                            Console.WriteLine($"Error ao deletar: {e.Message}");
                             Console.WriteLine();
                             continue;
                         }
@@ -46,10 +46,11 @@ namespace ClearFileTemp.Entities
                             File.Delete(p);
                             Console.WriteLine("Deletado: " + p);
                         }
-                        catch (IOException e)
+                        catch (Exception e)
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Error ao deletar este arquivo!");
+                            Console.WriteLine("Caminho: " + p);
                             Console.WriteLine($"Error: {e.Message}");
                             Console.WriteLine();
                             continue;
