@@ -3,15 +3,15 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PublishReadyToRun>true</PublishReadyToRun>
     <ApplicationIcon>icon-broom.ico</ApplicationIcon>
     <StartupObject>ClearFileTemp.Program</StartupObject>
     <Authors>Isaias D A</Authors>
     <Description>É uma aplicação que limpa as pasta temporárias do sistema e local.</Description>
     <PackageIcon>c_icon.png</PackageIcon>
-    <PackageIconUrl />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\c_icon.png">
+    <None Include="icon\c_icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
